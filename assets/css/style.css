@@ -1,0 +1,209 @@
+/* Zoology - প্রাণিবিদ্যা | GitHub Pages
+   Fonts: Noto Serif Bengali everywhere. Headings #980000, body #1c1c1c. */
+
+:root {
+  --red: #980000;
+  --red-dark: #6e0000;
+  --ink: #1c1c1c;
+  --muted: #5b5b5b;
+  --line: #e5e0da;
+  --bg: #ffffff;
+  --bg-soft: #f7f4f1;
+  --bg-grey: #f0edea;
+  --radius: 12px;
+  --max: 1060px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Noto Serif Bengali", "Noto Serif", serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--red); }
+h1, h2, h3 { color: var(--red); line-height: 1.4; margin: 0 0 .5em; }
+p { margin: 0 0 1em; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--red);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.brand-mark {
+  width: 46px; height: 46px; flex: 0 0 46px;
+  border-radius: 50%;
+  background: #fff; color: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 700;
+}
+.brand-name { font-size: 22px; font-weight: 700; line-height: 1.2; }
+.brand-sub { font-size: 13px; opacity: .85; line-height: 1.3; }
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 8px; padding: 6px 12px;
+  font-family: inherit; font-size: 16px; cursor: pointer;
+}
+.main-nav { margin-left: auto; }
+.main-nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.main-nav a {
+  color: #fff; text-decoration: none;
+  padding: 8px 13px; border-radius: 8px;
+  font-size: 16px; display: block;
+}
+.main-nav a:hover { background: rgba(255,255,255,.15); }
+.main-nav a.active { background: #fff; color: var(--red); font-weight: 700; }
+
+/* ---------- Layout ---------- */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+.page { padding: 28px 0 48px; }
+.page-head { margin-bottom: 22px; }
+.page-head h1 { font-size: 30px; margin-bottom: 4px; }
+.page-head p { color: var(--muted); margin: 0; }
+section.block { margin-bottom: 28px; }
+section.block:nth-of-type(even) { background: var(--bg-soft); }
+section.block .inner { padding: 18px; border-radius: var(--radius); }
+section.block:nth-of-type(even) .inner { padding: 18px; }
+
+/* ---------- Hero (Home) ---------- */
+.hero { position: relative; border-radius: var(--radius); overflow: hidden; margin-bottom: 24px; background: linear-gradient(135deg, #3f6d4e, #22452e 55%, #17301f); }
+.hero img { width: 100%; height: 340px; object-fit: cover; }
+.hero-fallback {
+  height: 340px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #fff; text-align: center; padding: 20px;
+}
+.hero-fallback .big { font-size: 44px; font-weight: 700; line-height: 1.3; }
+.hero-fallback .small { font-size: 18px; opacity: .9; margin-top: 8px; }
+
+/* ---------- Notice box ---------- */
+.notice-box {
+  border: 2px solid var(--red);
+  border-left-width: 8px;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  background: #fff5f5;
+}
+.notice-box h2 { font-size: 22px; margin-bottom: 6px; }
+.notice-box p { margin: 0 0 10px; }
+.notice-box .notice-date { color: var(--muted); font-size: 14px; }
+
+/* ---------- Contact strip ---------- */
+.contact-strip {
+  background: var(--bg-grey);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-align: center;
+}
+.contact-strip p { margin: 0; }
+
+/* ---------- Collapsible groups ---------- */
+.group { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; background: #fff; }
+.group > button {
+  width: 100%;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--bg-soft);
+  border: 0; padding: 14px 18px; cursor: pointer;
+  font-family: inherit; font-size: 19px; font-weight: 700; color: var(--red);
+  text-align: left;
+}
+.group > button .arrow { transition: transform .2s; font-size: 15px; color: var(--muted); }
+.group.open > button .arrow { transform: rotate(180deg); }
+.group-body { display: none; padding: 16px 18px; border-top: 1px solid var(--line); }
+.group.open .group-body { display: block; }
+.group-body ul, .group-body ol { margin: 0 0 1em; padding-left: 22px; }
+.group-body li { margin-bottom: 6px; }
+
+/* ---------- Notice list ---------- */
+.notice-item {
+  border: 1px solid var(--line); border-left: 6px solid var(--red);
+  border-radius: var(--radius);
+  padding: 16px 18px; margin-bottom: 14px; background: #fff;
+}
+.notice-item h3 { font-size: 20px; margin-bottom: 4px; }
+.notice-item .notice-date { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+.empty-state {
+  border: 1px dashed var(--line); border-radius: var(--radius);
+  padding: 26px 18px; text-align: center; color: var(--muted);
+}
+
+/* ---------- Team grid ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.team-card {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 14px; text-align: center; background: #fff;
+}
+.team-photo {
+  width: 96px; height: 96px; border-radius: 50%;
+  margin: 0 auto 12px;
+  background: var(--bg-grey);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 13px;
+  overflow: hidden;
+}
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-card h3 { font-size: 18px; margin-bottom: 2px; color: var(--ink); }
+.team-card .role { color: var(--muted); font-size: 15px; }
+.team-card .todo-note {
+  display: inline-block; margin-top: 8px;
+  background: #fff3cd; color: #7a5b00;
+  font-size: 13px; padding: 2px 10px; border-radius: 20px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink); color: #ddd;
+  padding: 26px 0; margin-top: 10px;
+  font-size: 15px;
+}
+.site-footer a { color: #fff; }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 16px; text-align: center; }
+.footer-inner p { margin: 0 0 6px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .nav-toggle { display: block; }
+  .main-nav { display: none; width: 100%; }
+  .main-nav.open { display: block; }
+  .main-nav ul { flex-direction: column; gap: 2px; }
+  .main-nav a { padding: 10px 12px; }
+  .hero img, .hero-fallback { height: 220px; }
+  .hero-fallback .big { font-size: 30px; }
+  .page-head h1 { font-size: 25px; }
+  .brand-name { font-size: 19px; }
+}
